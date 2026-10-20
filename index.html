@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0b12"><title>StudySpace — Aspirant Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="#overview"><span class="logo">S</span>Study<span>Space</span></a>
+  <p class="side-label">WORKSPACE</p>
+  <nav>
+    <a class="active" href="#overview">◫ &nbsp; Overview</a><a href="#syllabus">▤ &nbsp; Syllabus tracker</a>
+    <a href="#focus">◷ &nbsp; Focus timer</a><a href="#tasks">✓ &nbsp; Daily tasks</a><a href="#papers">▣ &nbsp; Previous papers</a>
+  </nav>
+  <div class="side-note"><b>✦ One step at a time.</b><p>Consistency beats intensity. Show up today.</p></div>
+</aside>
+<main class="main" id="overview">
+  <header class="topbar"><div><p class="eyebrow">YOUR PERSONAL STUDY HUB</p><h1>Good to see you, <span>Aspirant.</span></h1><p class="muted">Small focused sessions make big results.</p></div>
+  <div class="selectors"><select id="exam"><option>JEE</option><option>NEET</option></select><select id="grade"><option value="11">Class 11</option><option value="12">Class 12</option><option value="dropper">Dropper</option></select></div></header>
+  <section class="stats">
+    <article class="card stat"><p>SYLLABUS COMPLETED</p><strong><span id="percent">0</span><small>%</small></strong><div class="track"><i id="syllabusbar"></i></div><small id="chaptersdone">0 chapters completed</small></article>
+    <article class="card stat"><p>FOCUS TODAY</p><strong><span id="focusminutes">0</span><small> min</small></strong><small>Tracked on this device</small><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+    <article class="card stat"><p>TASKS FINISHED</p><strong><span id="taskdone">0</span><small> / <span id="tasktotal">0</span></small></strong><div class="track"><i id="taskbar"></i></div><small>Keep your daily promises</small></article>
+  </section>
+  <section class="columns">
+    <article class="card panel" id="focus"><div class="panel-head"><div><p class="eyebrow">STAY IN THE ZONE</p><h2>Focus session</h2></div><span class="pill green">● DEEP WORK</span></div>
+      <div class="timer"><svg viewBox="0 0 220 220"><circle class="ring-bg" cx="110" cy="110" r="96"/><circle id="ring" class="ring" cx="110" cy="110" r="96"/></svg><div class="timer-text"><small id="timerlabel">FOCUS TIME</small><strong id="time">25:00</strong><small id="timercaption">One thing at a time</small></div></div>
+      <div class="presets"><button class="preset active" data-min="25">25 min</button><button class="preset" data-min="45">45 min</button><button class="preset" data-min="60">60 min</button></div>
+      <div class="actions"><button class="primary" id="start">▶ Start focus</button><button class="secondary" id="reset">↺ Reset</button></div><p class="hint center">Your focus time is saved in this browser.</p>
+    </article>
+    <article class="card panel" id="tasks"><div class="panel-head"><div><p class="eyebrow">MAKE TODAY COUNT</p><h2>Daily tasks</h2></div><small class="muted" id="date"></small></div>
+      <form id="taskform" class="taskform"><input id="taskinput" maxlength="100" placeholder="Add a task for today..." required><button class="add" aria-label="Add task">+</button></form>
+      <div id="tasklist"></div><p id="empty" class="empty">✧<br>No tasks yet. Add one small goal to get started.</p>
+      <div class="taskfoot"><span id="remaining">0 tasks remaining</span><button class="linkbtn" id="clear">Clear completed</button></div>
+    </article>
+  </section>
+  <section class="card panel" id="syllabus"><div class="panel-head wrap"><div><p class="eyebrow">YOUR ROADMAP</p><h2>Syllabus tracker</h2><p class="muted">Track chapters as you learn, revise, and master them.</p></div><select id="subjectfilter"><option value="all">All subjects</option><option>Physics</option><option>Chemistry</option><option>Mathematics</option><option>Biology</option></select></div>
+    <div id="subjectsummary" class="subjectsummary"></div><div class="tablewrap"><table><thead><tr><th>SUBJECT / CHAPTER</th><th>STATUS</th><th>UPDATE PROGRESS</th></tr></thead><tbody id="chapterlist"></tbody></table></div><p class="hint">Starter chapter list for planning; follow your current official syllabus.</p>
+  </section>
+  <section class="card panel" id="papers"><div class="panel-head wrap"><div><p class="eyebrow">PRACTICE & IMPROVE</p><h2>Previous Year Papers</h2><p class="muted">Open official exam resources, record scores, and track attempts.</p></div><span class="year">2026</span></div>
+    <div class="notice">Official portals may list question papers, answer keys, or notices separately. If a direct PDF is not shown, check the portal's documents or archive.</div>
+    <div class="papergrid">
+      <article class="paper"><div class="paper-top"><span>📘</span><small>ENGINEERING</small></div><h3>JEE Main</h3><p>Official question-paper portal and exam resources.</p><a class="paperlink" href="https://jeemain.nta.nic.in/login/" target="_blank" rel="noopener noreferrer">Open official portal ↗</a><label class="check"><input type="checkbox" data-attempt="jee-main-2026"> Paper attempted</label><div class="scores"><label>Score<input type="number" min="0" step=".01" placeholder="e.g. 165" data-score="jee-main-2026"></label><label>Maximum<input type="number" min="1" step=".01" placeholder="e.g. 300" data-max="jee-main-2026"></label></div><p class="result">Score percentage: <b data-result="jee-main-2026">Not recorded</b></p><button class="secondary save" data-save="jee-main-2026">Save result</button></article>
+      <article class="paper"><div class="paper-top"><span>🚀</span><small>ENGINEERING</small></div><h3>JEE Advanced</h3><p>Official paper archive and exam resources.</p><a class="paperlink" href="https://jeeadv.ac.in/archive.html" target="_blank" rel="noopener noreferrer">Open official archive ↗</a><label class="check"><input type="checkbox" data-attempt="jee-advanced-2026"> Paper attempted</label><div class="scores"><label>Score<input type="number" min="0" step=".01" placeholder="Your score" data-score="jee-advanced-2026"></label><label>Maximum<input type="number" min="1" step=".01" placeholder="Max marks" data-max="jee-advanced-2026"></label></div><p class="result">Score percentage: <b data-result="jee-advanced-2026">Not recorded</b></p><button class="secondary save" data-save="jee-advanced-2026">Save result</button></article>
+      <article class="paper"><div class="paper-top"><span>🧪</span><small>MEDICAL</small></div><h3>NEET UG</h3><p>Official documents, notices, and available exam resources.</p><a class="paperlink" href="https://neet.nta.nic.in/documents/" target="_blank" rel="noopener noreferrer">Open official documents ↗</a><label class="check"><input type="checkbox" data-attempt="neet-2026"> Paper attempted</label><div class="scores"><label>Score<input type="number" min="0" step=".01" placeholder="e.g. 610" data-score="neet-2026"></label><label>Maximum<input type="number" min="1" step=".01" placeholder="e.g. 720" data-max="neet-2026"></label></div><p class="result">Score percentage: <b data-result="neet-2026">Not recorded</b></p><button class="secondary save" data-save="neet-2026">Save result</button></article>
+    </div><p class="hint">Attempts and scores are saved only in this browser; they are not uploaded anywhere.</p>
+  </section>
+  <footer><b>StudySpace</b><span>Plan with purpose. Prepare with consistency.</span></footer>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body></html>
